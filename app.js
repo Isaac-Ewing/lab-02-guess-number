@@ -1,3 +1,5 @@
+import { compareNumbers } from './functions.js'
+
 const guess = document.getElementById('guess-input');
 const submitButton = document.getElementById('submit');
 const guessesLeft = document.getElementById('guesses-left');
@@ -5,7 +7,7 @@ const dispResult = document.getElementById('result');
 const resetButton = document.getElementById('reset');
 
 let guesses = 4;
-let reset = 0;
+let reset = 0; //to disable the 'Guess' button
 let losses = 0;
 let wins = 0;
 let answer = Math.ceil(Math.random() * 20);
@@ -15,20 +17,20 @@ submitButton.addEventListener('click', () => {
         console.log(answer);
         guesses--;
         guessesLeft.textContent = guesses;
-        if (Number(guess.value) > answer) {
+        if (compareNumbers(Number(guess.value), answer) === 1) {
             dispResult.textContent = `Too high!`;
         }
-        if (Number(guess.value) < answer) {
+        if (compareNumbers(Number(guess.value), answer) === -1) {
             dispResult.textContent = `Too low!`;
         }
-        if (Number(guess.value) === answer) {
+        if (compareNumbers(Number(guess.value), answer) === 0) {
             wins++;
-            dispResult.textContent = `Correct! You have ${wins} wins and ${losses} losses. Try again?`;
+            dispResult.textContent = `Correct! Wins: ${wins} Losses: ${losses}. Try again?`;
             reset = 1;
         }
-        if (Number(guess.value) !== answer && guesses === 0) {
+        if (compareNumbers(Number(guess.value), answer) !== 0 && guesses === 0) {
             losses++;
-            dispResult.textContent = `Wrong and out of guesses. You have ${wins} wins and ${losses} losses. Try again?`;
+            dispResult.textContent = `Wrong and out of guesses. Wins: ${wins} Losses: ${losses}. Try again?`;
             reset = 1;
         };
     };
@@ -40,4 +42,5 @@ resetButton.addEventListener('click', () => {
     answer = Math.ceil(Math.random() * 20);
     dispResult.textContent = ``;
     reset = 0;
+    guess.textContent = ``;
 });

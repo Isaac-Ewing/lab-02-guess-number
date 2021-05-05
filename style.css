@@ -1,0 +1,21 @@
+header {
+    display: block;
+}
+
+#header-text {
+    font-size: 2rem;
+    margin-left: 35%;
+}
+
+.content {
+    margin-left: 35%;
+    margin-top: 100px;
+}
+
+.instructions {
+    display: block;
+    width: 40%;
+    font-size: 1.1rem;
+    margin-left: 30%;
+    margin-top: 50px;
+}

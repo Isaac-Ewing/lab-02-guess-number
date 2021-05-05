@@ -4,16 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 
 <body>
-    <section>
+    <title>
+            It's a Guessing Game 
+    </title>
+    <header>
+        <div>
+            <span id="header-text">It's a Guessing Game</span>
+            <img src="data:image/jpeg;base64,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" height=50px width=50px>
+        <div>
+    </header>
+    <p class="instructions">
+        The computer guesses a number between 1 and 20, and you have four tries to guess the number correctly.
+    </p>
+    <p class="instructions">
+        You will be informed if you are too high or low after each guess.
+    </p>
+    <p class="instructions">
+        If you guess above 20 or below 1, it's a useless guess and that's on you. Also, a non-number is counted as 0, that is also on you.
+    </p>
+    <section class="content">
         <input id="guess-input">
         <button id="submit">Guess!</button>
         <button id="reset">Reset</button>
         <span>You have <span id="guesses-left">4</span> guesses left</span>
     </section>
-    <span id="result"></span>
+    <span id="result" class="content"></span>
     <script type="module" src="./app.js"></script>
 </body>
 </html>
