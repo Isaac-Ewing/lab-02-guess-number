@@ -14,15 +14,14 @@ let answer = Math.ceil(Math.random() * 20);
 
 submitButton.addEventListener('click', () => {
     if ((guesses > 0) && (reset === 0)) {
-        console.log(answer);
         guesses--;
         guessesLeft.textContent = guesses;
-        if (compareNumbers(Number(guess.value), answer) === 1) {
+        if (compareNumbers(Number(guess.value), answer) === 1) 
             dispResult.textContent = `Too high!`;
-        }
-        if (compareNumbers(Number(guess.value), answer) === -1) {
+        
+        if (compareNumbers(Number(guess.value), answer) === -1) 
             dispResult.textContent = `Too low!`;
-        }
+        
         if (compareNumbers(Number(guess.value), answer) === 0) {
             wins++;
             dispResult.textContent = `Correct! Wins: ${wins} Losses: ${losses}. Try again?`;
